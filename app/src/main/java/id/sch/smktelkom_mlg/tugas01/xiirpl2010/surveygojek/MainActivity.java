@@ -66,7 +66,49 @@ public class MainActivity extends AppCompatActivity
         if (isValid())
         {
 
+            String Komen = etKomen.getText().toString();
+            int stratlen1 = cbHasil1.length();
+            String irb;
 
+            if (cb1.isChecked()) cbHasil1 += "\t- "+ cb1.getText() +"\n";
+            if (cb2.isChecked()) cbHasil1 += "\t- "+ cb2.getText() +"\n";
+            if (cb3.isChecked()) cbHasil1 += "\t- "+ cb3.getText() +"\n";
+            if (cb4.isChecked()) cbHasil1 += "\t- "+ cb4.getText() +"\n";
+            if (cbHasil1.length()==stratlen1) cbHasil1+= "Tidak mendapatkan Pelayanan";
+
+            if (rgKepuasan.getCheckedRadioButtonId()!= -1)
+            {
+                RadioButton rb = (RadioButton) findViewById(rgKepuasan.getCheckedRadioButtonId());
+                irb = rb.getText().toString();
+            }
+            else
+            {
+                irb = null;
+            }
+            if (irb == null)
+            {
+                AlertDialog.Builder builder1 = new AlertDialog.Builder(MainActivity.this);
+                builder1.setMessage("Anda harus mengisi Input Kepuasan!!");
+                builder1.setCancelable(true);
+
+                builder1.setNeutralButton(
+                        "Ok",
+                        new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int id) {
+                                dialog.dismiss();
+                                //startActivity(new Intent(CourseActivity.this, MainActivity.class));
+                            }
+                        });
+                AlertDialog alert11 = builder1.create();
+                alert11.show();
+            }
+            else
+            {
+                tvHasil.setText("Pelanggan telah mengunakan fasilitas "+ spFasilitas.getSelectedItem().toString()+"\n" +
+                        "Pelanggan mendapatkan : \n"+ cbHasil1 +" Pelanggan "+ irb+" dengan pelayanan Gojek\n" +
+                        "Pelanggan memberikan Komentar dan saran: " + Komen +" ");
+                kondisiawal();
+            }
         }
     }
 
