@@ -14,12 +14,29 @@ import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity
 {
+    TextView tvHasil;
+    EditText etKomen;
+    Spinner spFasilitas;
+    CheckBox cb1, cb2, cb3, cb4;
+    RadioGroup rgKepuasan;
+    String cbHasil1="";
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        getSupportActionBar().setTitle("Survey Gojek");
+
+        etKomen = (EditText) findViewById(R.id.editTextKomSar);
+        spFasilitas = (Spinner) findViewById(R.id.spinnerFasilitas);
+        cb1 = (CheckBox) findViewById(R.id.checkBox1);
+        cb2 = (CheckBox) findViewById(R.id.checkBox2);
+        cb3 = (CheckBox) findViewById(R.id.checkBox3);
+        cb4 = (CheckBox) findViewById(R.id.checkBox4);
+        rgKepuasan = (RadioGroup) findViewById(R.id.radioGroupKepuasan);
+        tvHasil = (TextView) findViewById(R.id.textViewHasil);
 
     }
 
