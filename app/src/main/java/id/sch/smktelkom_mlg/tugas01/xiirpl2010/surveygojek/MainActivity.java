@@ -38,6 +38,54 @@ public class MainActivity extends AppCompatActivity
         rgKepuasan = (RadioGroup) findViewById(R.id.radioGroupKepuasan);
         tvHasil = (TextView) findViewById(R.id.textViewHasil);
 
+        kondisiawal();
+        findViewById(R.id.buttonOk).setOnClickListener(new View.OnClickListener()
+        {
+            @Override
+            public void onClick(View view)
+            {
+                proses();
+            }
+        });
+    }
+
+    private void kondisiawal()
+    {
+        etKomen.setText("");
+        cb1.setChecked(false);
+        cb2.setChecked(false);
+        cb3.setChecked(false);
+        cb4.setChecked(false);
+        rgKepuasan.clearCheck();
+        spFasilitas.setSelection(0);
+        cbHasil1="";
+    }
+
+    private void proses()
+    {
+        if (isValid())
+        {
+
+
+        }
+    }
+
+    private boolean isValid()
+    {
+        boolean valid = true;
+
+        String KomSar = etKomen.getText().toString();
+
+        if (KomSar.isEmpty())
+        {
+            etKomen.setError("Anda belum mengisi komentar dan saran");
+            valid =false;
+        }
+        else
+        {
+            etKomen.setError(null);
+        }
+        return  valid;
     }
 
 
