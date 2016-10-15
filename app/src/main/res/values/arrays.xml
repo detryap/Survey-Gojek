@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="goj">
+        <item>GO Ride</item>
+        <item>Go Car</item>
+        <item>Go Box</item>
+        <item>Go Food</item>
+        <item>Go Clean</item>
+    </string-array>
+</resources>
